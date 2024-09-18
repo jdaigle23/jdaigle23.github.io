@@ -24,6 +24,9 @@ h1 {
     color: rgb(0, 0, 0);
     flex: 1;
     margin: 0;
+    font-family:fantasy;
+    font-size:xx-large;
+    font-variant-east-asian: jis78;
 }
 #nav-ul {
     list-style-image: none;
