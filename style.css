@@ -22,11 +22,10 @@ h1 {
     display: flex;
     align-items: center;
     color: rgb(0, 0, 0);
-    flex: 1;
+    flex: 3;
     margin: 0;
     font-family:fantasy;
-    font-size:xx-large;
-    font-variant-east-asian: jis78;
+    font-size:x-large;
 }
 #nav-ul {
     list-style-image: none;
@@ -66,6 +65,7 @@ main {
 }
 h2, h3 {
     margin: 0px;
+    font-family:fantasy;
 }
          /* portfolio styles */
          .content h1 {
