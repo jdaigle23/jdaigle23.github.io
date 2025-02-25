@@ -20,11 +20,11 @@ var init = function (window) {
     var circles = []; //variable to store all circles in one array
     // TODO 2 : Create a function that draws a circle
     function drawCircle() {
-      circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-      physikz.addRandomVelocity(circle, canvas);
-      view.addChild(circle);
-      circles.push(circle);
-    }//defines a function drawCircle which draws a circle in a random location on the canvas, gives it a speed, and stores each circle created in the circles array
+      circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);//draws a circle in a random location on the canvas
+      physikz.addRandomVelocity(circle, canvas);//gives the drawn circle a random speed based on the pre-existing function
+      view.addChild(circle);//allows the circle to be seen on the canvas
+      circles.push(circle);//adds the circle to the circles array using the .push method
+    }
 
     // TODO 3 / 7 : Call the drawCircle() function
     /*
@@ -35,9 +35,9 @@ var init = function (window) {
     drawCircle();//draws a circle
     */
 
-    for (var i = 0; i <= 100; i++) {//draws 100 circles in a loop
+    for (var i = 0; i <= 100; i++) {
         drawCircle(circles[i]);
-    }
+    }//draws 100 circles in a loop
     ////////////////////////////////////////////////////////////
     ///////////////// PROGRAM LOGIC ////////////////////////////
     ////////////////////////////////////////////////////////////
