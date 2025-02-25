@@ -21,13 +21,21 @@ var init = function (window) {
     // TODO 2 : Create a function that draws a circle
     function drawCircle() {
       circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-      physikz.addRandomVelocity(circle, canvas, 10, 10);
+      physikz.addRandomVelocity(circle, canvas);
       view.addChild(circle);
       circles.push(circle);
-    }
+    }//defines a function drawCircle which draws a circle in a random location on the canvas, gives it a speed, and stores each circle created in the circles array
 
     // TODO 3 / 7 : Call the drawCircle() function
-    for (var i = 0; i <= 100; i++) {
+    /*
+    drawCircle();//draws a circle
+    drawCircle();//draws a circle
+    drawCircle();//draws a circle
+    drawCircle();//draws a circle
+    drawCircle();//draws a circle
+    */
+
+    for (var i = 0; i <= 100; i++) {//draws 100 circles in a loop
         drawCircle(circles[i]);
     }
     ////////////////////////////////////////////////////////////
@@ -41,14 +49,26 @@ var init = function (window) {
         */
     function update() {
       // TODO 4 : Update the circle's position //
-      
+      /*
+      physikz.updatePosition(circles[0])//moves the circle
+      physikz.updatePosition(circles[1])//moves the circle
+      physikz.updatePosition(circles[2])//moves the circle
+      physikz.updatePosition(circles[3])//moves the circle
+      physikz.updatePosition(circles[4])//moves the circle
+      */
       // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-      
+      /*
+      game.checkCirclePosition(circles[0])//makes the circle disappear on one side and appear on the other
+      game.checkCirclePosition(circles[1])//makes the circle disappear on one side and appear on the other
+      game.checkCirclePosition(circles[2])//makes the circle disappear on one side and appear on the other
+      game.checkCirclePosition(circles[3])//makes the circle disappear on one side and appear on the other
+      game.checkCirclePosition(circles[4])//makes the circle disappear on one side and appear on the other
+      */
       // TODO 9 : Iterate over the array
       for (var i = 0; i < circles.length; i++) {
         physikz.updatePosition(circles[i]);
         game.checkCirclePosition(circles[i])
-      }
+      }//moves the circles and makes them disappear on one side and appear on the other for every circle in the circles array
     }
 
     /* 
@@ -65,13 +85,13 @@ var init = function (window) {
       // TODO 6 : YOUR CODE STARTS HERE //////////////////////
       if (circle.x < 0) {
         circle.x = canvas.width;
-      }
+      }//if the circle has gone past the left side of the screen, it reappears on the right side
       if (circle.y > canvas.height) {
         circle.y = 0;
-      }
+      }//if the circle has gone past the bottom side of the screen, it reappears on the top
       if (circle.y < 0) {
         circle.y = canvas.height;
-      }
+      }//if the circle has gone past the top side of the screen, it reappears on the bottom
       // YOUR TODO 6 CODE ENDS HERE //////////////////////////
     };
 
