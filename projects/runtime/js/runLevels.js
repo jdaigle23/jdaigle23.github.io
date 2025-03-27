@@ -31,9 +31,9 @@ var runLevels = function (window) {
       obstacleImage.y = -25;//position the image on the hit zone's y value by moving it up 25 units
       obstacleHitZone.rotationalVelocity = -10;//sets the rotational velocity of the obstacle
     }
-    createObstacles(400, groundY, 25, 10);
-    createObstacles(800, groundY, 25, 10);
-    createObstacles(1200, groundY, 25, 10);
+    //createObstacles(400, groundY, 25, 10);
+    //createObstacles(800, groundY, 25, 10);
+    //createObstacles(1200, groundY, 25, 10);
 
     function createEnemy (x, y, speed, health, score) {
       var enemy = game.createGameItem("enemy", 25);//creates your enemy game item and adds it to the game
@@ -56,9 +56,9 @@ var runLevels = function (window) {
       };
     };
 
-    createEnemy(400, groundY - 50, 3, -10, 100);
-    createEnemy(800, groundY - 50, 3, -10, 100);
-    createEnemy(1200, groundY - 50, 3, -10, 100);
+    //createEnemy(400, groundY - 50, 3, -10, 100);
+    //createEnemy(800, groundY - 50, 3, -10, 100);
+    //createEnemy(1200, groundY - 50, 3, -10, 100);
 
     function createReward (x, y, speed, health) {
       var reward = game.createGameItem("reward", 25);//creates your reward game item and adds it to the game
@@ -72,17 +72,43 @@ var runLevels = function (window) {
       reward.velocityX -= speed;//controlling how fast the reward moves on the x axis
       reward.onPlayerCollision = function () {
         game.changeIntegrity(health)//adds 10 health from hallebot's hud
-        shrink()//reward shrinks out of existence on player collision
+        game.increaseScore(50);
+        reward.shrink()//reward shrinks out of existence on player collision
       };
-      game.increseScore = 50;
     };
 
-    createReward(600, ground-50, 3, -10);
+    //createReward(600, groundY-50, 3, 10);
+
+    
+
+    function createLevel (x, y, speed) {
+      var level = game.createGameItem("level", 25);//creates your level game item and adds it to the game
+      var yellowSquare = draw.rect(50, 50, "yellow");//creates a yellow square and stores it in the variable yellowSquare
+      yellowSquare.x = -25;//offsets image from the hitzone by -25 horizontally
+      yellowSquare.y = -25;//offsets image from the hitzone by -25 vertically
+      level.addChild(yellowSquare);//adds the yellow square as a child to our level variable
+      level.x = x;//x position of level 
+      level.y = y;//y position of level
+      game.addGameItem(level);//adds the level to the game
+      level.velocityX -= speed;//controlling how fast the level moves on the x axis
+      level.onPlayerCollision = function () {
+        level.shrink()//level shrinks out of existence on player collision
+        startLevel();
+      };
+    };
+
+    //createLevel(2000, groundY - 50, 3)
 
     function startLevel() {
       // TODO 13 goes below here
-
-
+      var level = levelData[currentLevel]//fetches the current level from the levelData array and stores it in var level
+      var levelObjects = level.gameItems//retrieves the array of game items and stores it in levelObjects
+      for (var i = 0; i < levelObjects.length; i++) {
+        var element = levelObjects[i];
+        if (element.type === "obstacle") {
+          createObstacles(element.x, element.y, element.hitSize, element.damage)
+        }
+      }
 
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
