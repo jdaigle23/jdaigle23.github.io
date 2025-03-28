@@ -19,9 +19,9 @@ var makeLevelData = function (window) {
           { type: "obstacle", x: 800, y: groundY, hitSize: 25, damage: 10 },
           { type: "obstacle", x: 1200, y: groundY, hitSize: 25, damage: 10 },
 
-          { type: "enemy", x: 400, y: groundY-50, speed: 3, health: -10 },
-          { type: "enemy", x: 800, y: groundY-50, speed: 3, health: -10 },
-          { type: "enemy", x: 1200, y: groundY-50, speed: 3, health: -10 },
+          { type: "enemy", x: 400, y: groundY-50, speed: 3, health: -10, score: 100 },
+          { type: "enemy", x: 800, y: groundY-50, speed: 3, health: -10, score: 100 },
+          { type: "enemy", x: 1200, y: groundY-50, speed: 3, health: -10, score: 100 },
 
           { type: "reward", x: 600, y: groundY-50, speed: 3, health: 10 },
 

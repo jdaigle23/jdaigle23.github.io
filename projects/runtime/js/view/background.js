@@ -103,6 +103,7 @@ var background = function (window) {
                     building.x = canvasWidth;//checks if the x position of the buiding is less than -100, and if it's true, then it resets the building to the other side of the canvas
                 }
             }
+            
 
         } // end of update function - DO NOT DELETE
         

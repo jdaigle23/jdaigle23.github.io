@@ -105,8 +105,17 @@ var runLevels = function (window) {
       var levelObjects = level.gameItems//retrieves the array of game items and stores it in levelObjects
       for (var i = 0; i < levelObjects.length; i++) {
         var element = levelObjects[i];
-        if (element.type === "obstacle") {
-          createObstacles(element.x, element.y, element.hitSize, element.damage)
+        if (element.type === "obstacle") {//checks the type key:value of the gameItems objects
+          createObstacles(element.x, element.y, element.hitSize, element.damage)//if the condition is true it will call the relevant function
+        }
+        if (element.type === "enemy") {//checks the type key:value of the gameItems objects
+          createEnemy(element.x, element.y, element.speed, element.health, element.score)//if the condition is true it will call the relevant function
+        }
+        if (element.type === "reward") {//checks the type key:value of the gameItems objects
+          createReward(element.x, element.y, element.speed, element.health)//if the condition is true it will call the relevant function
+        }
+        if (element.type === "level") {//checks the type key:value of the gameItems objects
+          createLevel(element.x, element.y, element.speed)//if the condition is true it will call the relevant function
         }
       }
 
