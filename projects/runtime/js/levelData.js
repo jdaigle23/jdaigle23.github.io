@@ -15,17 +15,17 @@ var makeLevelData = function (window) {
         number: 1,
         speed: -3,
         gameItems: [
-          { type: "obstacle", x: 400, y: groundY, hitSize: 25, damage: 10},
-          { type: "obstacle", x: 800, y: groundY, hitSize: 25, damage: 10 },
-          { type: "obstacle", x: 1200, y: groundY, hitSize: 25, damage: 10 },
+          { type: "obstacle", x: 400, y: groundY, hitSize: 25, damage: 10, image: "img/sawblade.png"},
+          { type: "obstacle", x: 800, y: groundY, hitSize: 25, damage: 10, image: "img/sawblade.png"},
+          { type: "obstacle", x: 1200, y: groundY, hitSize: 25, damage: 10, image: "img/sawblade.png" },
 
-          { type: "enemy", x: 400, y: groundY-50, speed: 3, health: -10, score: 100 },
-          { type: "enemy", x: 800, y: groundY-50, speed: 3, health: -10, score: 100 },
-          { type: "enemy", x: 1200, y: groundY-50, speed: 3, health: -10, score: 100 },
+          { type: "enemy", x: 400, y: groundY-50, speed: 2, health: -10, score: 100, image: "img/soldier.png", scale: 0.5 },
+          { type: "enemy", x: 800, y: groundY-50, speed: 2, health: -10, score: 100, image: "img/soldier.png" },
+          { type: "enemy", x: 1200, y: groundY-50, speed: 2, health: -10, score: 100, image: "img/soldier.png" },
 
-          { type: "reward", x: 600, y: groundY-50, speed: 3, health: 10 },
+          { type: "reward", x: 600, y: groundY-50, speed: 2, health: 10 },
 
-          { type: "level", x: 2000, y: groundY-50, speed: 3},
+          { type: "level", x: 2000, y: groundY-50, speed: 2},
         ],
       },
       {

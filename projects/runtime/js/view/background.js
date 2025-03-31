@@ -29,8 +29,8 @@ var background = function (window) {
         // ANIMATION VARIABLES HERE //////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         // TODO (several):
-        var tree;
-        var buildings = [];
+        //var tree;
+        //var buildings = [];
       
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -61,7 +61,7 @@ var background = function (window) {
             background.addChild(moon);//adds the moon to the background container
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for (var i = 0; i < 10; ++i) {
+            /*for (var i = 0; i < 10; ++i) {
                 var buildingColors = ["red", "blue", "yellow", "orange", "purple", "red", "blue", "yellow", "orange", "purple"]
                 var buildingHeight = 300 * Math.random();//assign 300 to the buildingHeight variable
                 var building = draw.rect(75, buildingHeight, buildingColors[i], "Black", 1);//draws a rectangle with 75 width, buildingHeight for the height, lightGray for the fill color, black for the outline, and 1 for the outline width
@@ -75,7 +75,7 @@ var background = function (window) {
             tree = draw.bitmap("img/tree.png");//creates a bitmap for the tree image and stores it in the variable tree
             tree.x = canvasWidth-300;//place the tree on the canvas in relation to the canvasWidth bound
             tree.y = groundY-225;//place the tree on the canvas in relation to the groundY bound
-            background.addChild(tree);//add the tree to the background container
+            background.addChild(tree);//add the tree to the background container*/
             
         } // end of render function - DO NOT DELETE
         
@@ -89,9 +89,9 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 3: Part 2 - Move the tree!
-            tree.x = tree.x - 4;//moves the tree to the left by subtracting 4 from its position
+           // tree.x = tree.x - 4;//moves the tree to the left by subtracting 4 from its position
 
-            if (tree.x < -200) {
+            /*if (tree.x < -200) {
                 tree.x = canvasWidth;
             }
             
@@ -102,7 +102,7 @@ var background = function (window) {
                 if (building.x < -100){
                     building.x = canvasWidth;//checks if the x position of the buiding is less than -100, and if it's true, then it resets the building to the other side of the canvas
                 }
-            }
+            }*/
             
 
         } // end of update function - DO NOT DELETE

@@ -18,14 +18,14 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createObstacles (x, y, hitSize, damage){
+    function createObstacles (x, y, hitSize, damage, image){
       var hitZoneSize = hitSize;//define the size of the hitzone and assign it to a variable
       var damageFromObstacle = damage;//define the damage the obastacle causes and assigns it to a variable
       var obstacleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);//creates the obstacle hit zone using the size and damage as paramters and assigns it as a variable
       obstacleHitZone.x = x;//sets the x coordinate of the sawblade
       obstacleHitZone.y = y;//sets the y coordinate of the sawblade
       game.addGameItem(obstacleHitZone);//adds the sawblade hit zone to the game through the function addGameItem
-      var obstacleImage = draw.bitmap("img/sawblade.png");//draws the sawblade image and stores it in the obstacleImage 
+      var obstacleImage = draw.bitmap(image);//draws the sawblade image and stores it in the obstacleImage 
       obstacleHitZone.addChild(obstacleImage);//attatches the image to the sawblade hitzone
       obstacleImage.x = -25;//position the image on the hit zone's x value by moving it to the left 25 units
       obstacleImage.y = -25;//position the image on the hit zone's y value by moving it up 25 units
@@ -35,12 +35,14 @@ var runLevels = function (window) {
     //createObstacles(800, groundY, 25, 10);
     //createObstacles(1200, groundY, 25, 10);
 
-    function createEnemy (x, y, speed, health, score) {
+    function createEnemy (x, y, speed, health, score, image, scale) {
       var enemy = game.createGameItem("enemy", 25);//creates your enemy game item and adds it to the game
-      var redSquare = draw.rect(50, 50, "red");//creates a red square and stores it in the variable redSquare
-      redSquare.x = -25;//offsets image from the hitzone by -25 horizontally
-      redSquare.y = -25;//offsets image from the hitzone by -25 vertically
-      enemy.addChild(redSquare);//adds the red square as a child to our enemy variable
+      var enemyImage = draw.bitmap(image);//creates a red square and stores it in the variable redSquare
+      enemyImage.scaleX = scale;
+      enemyImage.scaleY = scale;
+      enemyImage.x = -25*scale;//offsets image from the hitzone by -25 horizontally
+      enemyImage.y = -25*scale;//offsets image from the hitzone by -25 vertically
+      enemy.addChild(enemyImage);//adds the red square as a child to our enemy variable
       enemy.x = x;//x position of enemy 
       enemy.y = y;//y position of enemy
       game.addGameItem(enemy);//adds the enemy to the game
@@ -106,10 +108,10 @@ var runLevels = function (window) {
       for (var i = 0; i < levelObjects.length; i++) {
         var element = levelObjects[i];
         if (element.type === "obstacle") {//checks the type key:value of the gameItems objects
-          createObstacles(element.x, element.y, element.hitSize, element.damage)//if the condition is true it will call the relevant function
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image)//if the condition is true it will call the relevant function
         }
         if (element.type === "enemy") {//checks the type key:value of the gameItems objects
-          createEnemy(element.x, element.y, element.speed, element.health, element.score)//if the condition is true it will call the relevant function
+          createEnemy(element.x, element.y, element.speed, element.health, element.score, element.image)//if the condition is true it will call the relevant function
         }
         if (element.type === "reward") {//checks the type key:value of the gameItems objects
           createReward(element.x, element.y, element.speed, element.health)//if the condition is true it will call the relevant function
