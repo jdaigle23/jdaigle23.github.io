@@ -18,7 +18,7 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createObstacles (x, y, hitSize, damage, image){
+    function createObstacles (x, y, hitSize, damage, image, scale){
       var hitZoneSize = hitSize;//define the size of the hitzone and assign it to a variable
       var damageFromObstacle = damage;//define the damage the obastacle causes and assigns it to a variable
       var obstacleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);//creates the obstacle hit zone using the size and damage as paramters and assigns it as a variable
@@ -27,16 +27,18 @@ var runLevels = function (window) {
       game.addGameItem(obstacleHitZone);//adds the sawblade hit zone to the game through the function addGameItem
       var obstacleImage = draw.bitmap(image);//draws the sawblade image and stores it in the obstacleImage 
       obstacleHitZone.addChild(obstacleImage);//attatches the image to the sawblade hitzone
-      obstacleImage.x = -25;//position the image on the hit zone's x value by moving it to the left 25 units
-      obstacleImage.y = -25;//position the image on the hit zone's y value by moving it up 25 units
-      obstacleHitZone.rotationalVelocity = -10;//sets the rotational velocity of the obstacle
+      obstacleImage.scaleX = scale;
+      obstacleImage.scaleY = scale;
+      obstacleImage.x = -200*scale;//position the image on the hit zone's x value by moving it to the left 25 units
+      obstacleImage.y = -90*scale;//position the image on the hit zone's y value by moving it up 25 units
+      //obstacleHitZone.rotationalVelocity = -10;//sets the rotational velocity of the obstacle
     }
     //createObstacles(400, groundY, 25, 10);
     //createObstacles(800, groundY, 25, 10);
     //createObstacles(1200, groundY, 25, 10);
 
-    function createEnemy (x, y, speed, health, score, image, scale) {
-      var enemy = game.createGameItem("enemy", 25);//creates your enemy game item and adds it to the game
+    function createEnemy (x, y, speed, health, score, image, scale, hitSize) {
+      var enemy = game.createGameItem("enemy", hitSize);//creates your enemy game item and adds it to the game
       var enemyImage = draw.bitmap(image);//creates a red square and stores it in the variable redSquare
       enemyImage.scaleX = scale;
       enemyImage.scaleY = scale;
@@ -108,10 +110,10 @@ var runLevels = function (window) {
       for (var i = 0; i < levelObjects.length; i++) {
         var element = levelObjects[i];
         if (element.type === "obstacle") {//checks the type key:value of the gameItems objects
-          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image)//if the condition is true it will call the relevant function
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.scale)//if the condition is true it will call the relevant function
         }
         if (element.type === "enemy") {//checks the type key:value of the gameItems objects
-          createEnemy(element.x, element.y, element.speed, element.health, element.score, element.image)//if the condition is true it will call the relevant function
+          createEnemy(element.x, element.y, element.speed, element.health, element.score, element.image, element.scale, element.hitSize)//if the condition is true it will call the relevant function
         }
         if (element.type === "reward") {//checks the type key:value of the gameItems objects
           createReward(element.x, element.y, element.speed, element.health)//if the condition is true it will call the relevant function

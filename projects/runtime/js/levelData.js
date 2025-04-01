@@ -15,13 +15,14 @@ var makeLevelData = function (window) {
         number: 1,
         speed: -3,
         gameItems: [
-          { type: "obstacle", x: 400, y: groundY, hitSize: 25, damage: 10, image: "img/sawblade.png"},
-          { type: "obstacle", x: 800, y: groundY, hitSize: 25, damage: 10, image: "img/sawblade.png"},
-          { type: "obstacle", x: 1200, y: groundY, hitSize: 25, damage: 10, image: "img/sawblade.png" },
+          { type: "obstacle", x: 400, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2},
+          { type: "obstacle", x: 800, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2},
+          { type: "obstacle", x: 1200, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2 },
+          { type: "obstacle", x: 400, y: groundY-400, hitSize: 25, damage: 10, image: "img/ship.debris.png", scale: 0.2 },
 
-          { type: "enemy", x: 400, y: groundY-50, speed: 2, health: -10, score: 100, image: "img/soldier.png", scale: 0.5 },
-          { type: "enemy", x: 800, y: groundY-50, speed: 2, health: -10, score: 100, image: "img/soldier.png" },
-          { type: "enemy", x: 1200, y: groundY-50, speed: 2, health: -10, score: 100, image: "img/soldier.png" },
+          { type: "enemy", x: 400, y: groundY-120, speed: 2, health: -10, score: 100, image: "img/soldier.png", scale: 0.2, hitSize: 80 },
+          { type: "enemy", x: 800, y: groundY-120, speed: 2, health: -10, score: 100, image: "img/soldier.png", scale: 0.2, hitSize: 80 },
+          { type: "enemy", x: 1200, y: groundY-120, speed: 2, health: -10, score: 100, image: "img/soldier.png", scale: 0.2, hitSize: 80 },
 
           { type: "reward", x: 600, y: groundY-50, speed: 2, health: 10 },
 
