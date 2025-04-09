@@ -15,10 +15,14 @@ var makeLevelData = function (window) {
         number: 1,
         speed: -3,
         gameItems: [
-          { type: "obstacle", x: 400, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2},
-          { type: "obstacle", x: 800, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2},
-          { type: "obstacle", x: 1200, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2 },
-          { type: "obstacle", x: 800, y: groundY-110, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2 },
+          { type: "obstacle", x: 400, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2, speedX: 2, speedY: 0},
+          { type: "obstacle", x: 800, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2, speedX: 2, speedY: 0},
+          { type: "obstacle", x: 1200, y: groundY, hitSize: 25, damage: 10, image: "img/alien.stuff.png", scale: 0.2, speedX: 2, speedY: 0 },
+          { type: "obstacle", x: 800, y: groundY-580, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2, speedX: 4, speedY: 4 },
+          { type: "obstacle", x: 1400, y: groundY-900, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2, speedX: 4, speedY: 4 },
+          { type: "obstacle", x: 1500, y: groundY-700, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2, speedX: 4, speedY: 4 },
+          { type: "obstacle", x: 1500, y: groundY-700, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2, speedX: 4, speedY: 4 },
+          { type: "obstacle", x: 1000, y: groundY-800, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2, speedX: 4, speedY: 4 },
 
           { type: "enemy", x: 400, y: groundY-120, speed: 2, health: -10, score: 100, image: "img/soldier.png", scale: 0.2, hitSize: 80 },
           { type: "enemy", x: 800, y: groundY-120, speed: 2, health: -10, score: 100, image: "img/soldier.png", scale: 0.2, hitSize: 80 },

@@ -18,7 +18,7 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createObstacles (x, y, hitSize, damage, image, scale){
+    function createObstacles (x, y, hitSize, damage, image, scale, speedX, speedY){
       var hitZoneSize = hitSize;//define the size of the hitzone and assign it to a variable
       var damageFromObstacle = damage;//define the damage the obastacle causes and assigns it to a variable
       var obstacleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);//creates the obstacle hit zone using the size and damage as paramters and assigns it as a variable
@@ -31,6 +31,8 @@ var runLevels = function (window) {
       obstacleImage.scaleY = scale;
       obstacleImage.x = -200*scale;//position the image on the hit zone's x value by moving it to the left 25 units
       obstacleImage.y = -90*scale;//position the image on the hit zone's y value by moving it up 25 units
+      obstacleHitZone.velocityX -= speedX;
+      obstacleHitZone.velocityY += speedY;
       //obstacleHitZone.rotationalVelocity = -10;//sets the rotational velocity of the obstacle
     }
     //createObstacles(400, groundY, 25, 10);
@@ -110,7 +112,7 @@ var runLevels = function (window) {
       for (var i = 0; i < levelObjects.length; i++) {
         var element = levelObjects[i];
         if (element.type === "obstacle") {//checks the type key:value of the gameItems objects
-          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.scale)//if the condition is true it will call the relevant function
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.scale, element.speedX, element.speedY)//if the condition is true it will call the relevant function
         }
         if (element.type === "enemy") {//checks the type key:value of the gameItems objects
           createEnemy(element.x, element.y, element.speed, element.health, element.score, element.image, element.scale, element.hitSize)//if the condition is true it will call the relevant function
