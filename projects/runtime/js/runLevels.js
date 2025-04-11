@@ -95,8 +95,8 @@ var runLevels = function (window) {
       var levelImage = draw.bitmap(image);//creates a yellow square and stores it in the variable yellowSquare
       levelImage.scaleX = scale;
       levelImage.scaleY = scale;
-      levelImage.x = -25*scale;//offsets image from the hitzone by -25 horizontally
-      levelImage.y = -25*scale;//offsets image from the hitzone by -25 vertically
+      levelImage.x = 35*scale;//offsets image from the hitzone by -25 horizontally
+      levelImage.y = 35*scale;//offsets image from the hitzone by -25 vertically
       level.addChild(levelImage);//adds the yellow square as a child to our level variable
       level.x = x;//x position of level 
       level.y = y;//y position of level

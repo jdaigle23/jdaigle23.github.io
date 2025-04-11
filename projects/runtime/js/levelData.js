@@ -49,9 +49,9 @@ var makeLevelData = function (window) {
           { type: "obstacle", x: 4000, y: groundY-1700, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2, speedX: 4, speedY: 4 },
           { type: "obstacle", x: 5000, y: groundY-2800, hitSize: 25, damage: 10, image: "img/meteorite.png", scale: 0.2, speedX: 4, speedY: 4 },
 
-          { type: "enemy", x: 1400, y: groundY-140, speed: 2, health: -10, score: 100, image: "img/viltrumite.png", scale: 0.4, hitSize: 80 },
-          { type: "enemy", x: 2000, y: groundY-140, speed: 2, health: -10, score: 100, image: "img/viltrumite.png", scale: 0.4, hitSize: 80 },
-          { type: "enemy", x: 2600, y: groundY-140, speed: 2, health: -10, score: 100, image: "img/viltrumite.png", scale: 0.4, hitSize: 80 },
+          { type: "enemy", x: 1400, y: groundY-140, speed: 2, health: -10, score: 100, image: "img/viltrumite.png", scale: 0.4, hitSize: 100 },
+          { type: "enemy", x: 2000, y: groundY-140, speed: 2, health: -10, score: 100, image: "img/viltrumite.png", scale: 0.4, hitSize: 100 },
+          { type: "enemy", x: 2600, y: groundY-140, speed: 2, health: -10, score: 100, image: "img/viltrumite.png", scale: 0.4, hitSize: 100 },
 
           { type: "reward", x: 1600, y: groundY-90, speed: 2, health: 10, image: "img/camera.png", scale: 0.2},
           { type: "reward", x: 1900, y: groundY-90, speed: 2, health: 10, image: "img/camera.png", scale: 0.2},
