@@ -8,7 +8,7 @@ var runLevels = function (window) {
   window.opspark.runLevelInGame = function (game) {
     // some useful constants
     var groundY = game.groundY;
-
+    
     // this data will allow us to define all of the
     // behavior of our game
     var levelData = window.opspark.levelData;
@@ -66,12 +66,14 @@ var runLevels = function (window) {
     //createEnemy(800, groundY - 50, 3, -10, 100);
     //createEnemy(1200, groundY - 50, 3, -10, 100);
 
-    function createReward (x, y, speed, health) {
+    function createReward (x, y, speed, health, image, scale) {
       var reward = game.createGameItem("reward", 25);//creates your reward game item and adds it to the game
-      var blueSquare = draw.rect(50, 50, "blue");//creates a blue square and stores it in the variable blueSquare
-      blueSquare.x = -25;//offsets image from the hitzone by -25 horizontally
-      blueSquare.y = -25;//offsets image from the hitzone by -25 vertically
-      reward.addChild(blueSquare);//adds the blue square as a child to our reward variable
+      var rewardImage = draw.bitmap(image);//creates a blue square and stores it in the variable blueSquare
+      rewardImage.scaleX = scale;
+      rewardImage.scaleY = scale;
+      rewardImage.x = -25*scale;//offsets image from the hitzone by -25 horizontally
+      rewardImage.y = -25*scale;//offsets image from the hitzone by -25 vertically
+      reward.addChild(rewardImage);//adds the blue square as a child to our reward variable
       reward.x = x;//x position of reward 
       reward.y = y;//y position of reward
       game.addGameItem(reward);//adds the reward to the game
@@ -81,18 +83,21 @@ var runLevels = function (window) {
         game.increaseScore(50);
         reward.shrink()//reward shrinks out of existence on player collision
       };
+      reward.rotationalVelocity = 5;
     };
 
     //createReward(600, groundY-50, 3, 10);
 
     
 
-    function createLevel (x, y, speed) {
+    function createLevel (x, y, speed, image, scale) {
       var level = game.createGameItem("level", 25);//creates your level game item and adds it to the game
-      var yellowSquare = draw.rect(50, 50, "yellow");//creates a yellow square and stores it in the variable yellowSquare
-      yellowSquare.x = -25;//offsets image from the hitzone by -25 horizontally
-      yellowSquare.y = -25;//offsets image from the hitzone by -25 vertically
-      level.addChild(yellowSquare);//adds the yellow square as a child to our level variable
+      var levelImage = draw.bitmap(image);//creates a yellow square and stores it in the variable yellowSquare
+      levelImage.scaleX = scale;
+      levelImage.scaleY = scale;
+      levelImage.x = -25*scale;//offsets image from the hitzone by -25 horizontally
+      levelImage.y = -25*scale;//offsets image from the hitzone by -25 vertically
+      level.addChild(levelImage);//adds the yellow square as a child to our level variable
       level.x = x;//x position of level 
       level.y = y;//y position of level
       game.addGameItem(level);//adds the level to the game
@@ -118,10 +123,10 @@ var runLevels = function (window) {
           createEnemy(element.x, element.y, element.speed, element.health, element.score, element.image, element.scale, element.hitSize)//if the condition is true it will call the relevant function
         }
         if (element.type === "reward") {//checks the type key:value of the gameItems objects
-          createReward(element.x, element.y, element.speed, element.health)//if the condition is true it will call the relevant function
+            createReward(element.x, element.y, element.speed, element.health, element.image, element.scale)//if the condition is true it will call the relevant function
         }
         if (element.type === "level") {//checks the type key:value of the gameItems objects
-          createLevel(element.x, element.y, element.speed)//if the condition is true it will call the relevant function
+          createLevel(element.x, element.y, element.speed, element.image, element.scale)//if the condition is true it will call the relevant function
         }
       }
 
